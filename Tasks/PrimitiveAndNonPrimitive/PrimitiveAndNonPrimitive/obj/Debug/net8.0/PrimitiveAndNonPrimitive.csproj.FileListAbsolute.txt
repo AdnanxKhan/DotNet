@@ -1,0 +1,14 @@
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\bin\Debug\net8.0\PrimitiveAndNonPrimitive.exe
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\bin\Debug\net8.0\PrimitiveAndNonPrimitive.deps.json
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\bin\Debug\net8.0\PrimitiveAndNonPrimitive.runtimeconfig.json
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\bin\Debug\net8.0\PrimitiveAndNonPrimitive.dll
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\bin\Debug\net8.0\PrimitiveAndNonPrimitive.pdb
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.AssemblyInfoInputs.cache
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.AssemblyInfo.cs
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.csproj.CoreCompileInputs.cache
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.dll
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\refint\PrimitiveAndNonPrimitive.dll
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.pdb
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\PrimitiveAndNonPrimitive.genruntimeconfig.cache
+C:\Users\rupes\source\repos\PrimitiveAndNonPrimitive\PrimitiveAndNonPrimitive\obj\Debug\net8.0\ref\PrimitiveAndNonPrimitive.dll
