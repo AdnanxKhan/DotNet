@@ -1,0 +1,2 @@
+C:\Users\rupes\source\repos\Day5\Day.UnitTests\obj\Debug\Day.UnitTests.csproj.AssemblyReference.cache
+C:\Users\rupes\source\repos\Day5\Day.UnitTests\obj\Debug\Day.UnitTests.csproj.CoreCompileInputs.cache

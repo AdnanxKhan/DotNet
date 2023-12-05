@@ -1,0 +1,14 @@
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\bin\Debug\net8.0\OverridingNew.exe
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\bin\Debug\net8.0\OverridingNew.deps.json
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\bin\Debug\net8.0\OverridingNew.runtimeconfig.json
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\bin\Debug\net8.0\OverridingNew.dll
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\bin\Debug\net8.0\OverridingNew.pdb
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.AssemblyInfoInputs.cache
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.AssemblyInfo.cs
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.csproj.CoreCompileInputs.cache
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.dll
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\refint\OverridingNew.dll
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.pdb
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\OverridingNew.genruntimeconfig.cache
+C:\Users\rupes\source\repos\OverridingNew\OverridingNew\obj\Debug\net8.0\ref\OverridingNew.dll
