@@ -1,0 +1,14 @@
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\bin\Debug\net8.0\TaskParallelLibrary.exe
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\bin\Debug\net8.0\TaskParallelLibrary.deps.json
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\bin\Debug\net8.0\TaskParallelLibrary.runtimeconfig.json
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\bin\Debug\net8.0\TaskParallelLibrary.dll
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\bin\Debug\net8.0\TaskParallelLibrary.pdb
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.AssemblyInfoInputs.cache
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.AssemblyInfo.cs
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.csproj.CoreCompileInputs.cache
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.dll
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\refint\TaskParallelLibrary.dll
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.pdb
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\TaskParallelLibrary.genruntimeconfig.cache
+C:\Users\rupes\source\repos\TaskParallelLibrary\TaskParallelLibrary\obj\Debug\net8.0\ref\TaskParallelLibrary.dll

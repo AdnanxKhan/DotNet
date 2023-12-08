@@ -1,0 +1,14 @@
+C:\Users\rupes\source\repos\OutRef\OutRef\bin\Debug\net8.0\OutRef.exe
+C:\Users\rupes\source\repos\OutRef\OutRef\bin\Debug\net8.0\OutRef.deps.json
+C:\Users\rupes\source\repos\OutRef\OutRef\bin\Debug\net8.0\OutRef.runtimeconfig.json
+C:\Users\rupes\source\repos\OutRef\OutRef\bin\Debug\net8.0\OutRef.dll
+C:\Users\rupes\source\repos\OutRef\OutRef\bin\Debug\net8.0\OutRef.pdb
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.AssemblyInfoInputs.cache
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.AssemblyInfo.cs
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.csproj.CoreCompileInputs.cache
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.dll
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\refint\OutRef.dll
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.pdb
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\OutRef.genruntimeconfig.cache
+C:\Users\rupes\source\repos\OutRef\OutRef\obj\Debug\net8.0\ref\OutRef.dll
