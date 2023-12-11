@@ -1,0 +1,63 @@
+﻿@using Day10.Models
+@model Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+    @*@using (Html.BeginForm("MyForm"))
+        {
+            <div>
+                <label for="Name">Name:</label>
+                @Html.DisplayName("Name")
+                @Html.TextBoxFor(x => x.Name)
+            </div>
+
+            <div>
+                <label for="Address">Address:</label>
+                @Html.DisplayName("Address")
+                @Html.TextBoxFor(x => x.Address)
+            </div>
+            <div>
+                @Html.DisplayName("Date Of Birth")
+               @Model.DateOfBirth.ToShortDateString()
+            </div>
+            <div>
+                <label for="isEmployee">Are you an Employee?</label>
+                @Html.DisplayFor(x => x.isEmployee)
+            </div>
+
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+            <div>
+                <input href="submit" value="Edit" />
+            </div>  }
+    *@
+    <div>
+
+        @CustomHelper.Image("data:image/jpeg;base64,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", "This is a custom Image.")
+    </div>
+    <div>
+        Value = @ViewBag.MyKey
+        <h1>
+            <ul>
+                @ViewBag.MyCustomInput
+                @foreach (var item in ViewBag.MyList)
+                {
+                    <li>@item</li>
+                }
+        </h1>
+
+    </div>
+
+</body>
+</html>
