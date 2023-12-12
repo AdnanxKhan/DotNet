@@ -1,0 +1,46 @@
+﻿@model Day11.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <section>
+            @using (Html.BeginForm("SubmitData","Home",FormMethod.Post))
+            {
+                @Html.ValidationSummary()
+                <label>First Name : </label>
+                @Html.TextBox("FirstName")<br />
+                <label>Last Name : </label>
+                @Html.TextBox("LastName")<br />
+                <label>Email ID : </label>
+                @Html.TextBox("Email")<br />
+                <label>Age :            </label>
+                @Html.TextBox("Age")<br />
+
+                <br />
+                <input type="submit" name="Submit" />
+
+            }
+        </section>
+    </div>
+</body>
+</html>
+@*
+
+    @using (Html.BeginForm("PostUsingBinding", "Home",FormMethod.Post))
+           {
+               @Html.TextBoxFor(x=>x.firstName)<br />
+               @Html.TextBoxFor(x=>x.lastName)<br />
+
+               <input type="submit" value="Submit" />
+           }
+
+*@
