@@ -1,0 +1,227 @@
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId int,
+  name varchar(100),
+  dept varchar(50)
+
+);
+
+-- insert
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (0001, 'Clark', 'Sales');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (0002, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE(empId,name,dept) VALUES (0003, 'Ava', 'Sales');
+
+-- fetch 
+SELECT dept, name
+FROM EMPLOYEE
+Where empId =3 or name = 'Clark';
+
+alter TABLE EMPLOYEE 
+ADD salary int;
+
+UPDATE EMPLOYEE
+set salary =10000
+WHERE empId=1 ;
+
+UPDATE EMPLOYEE
+set salary =30000
+WHERE empId=2 ;
+
+UPDATE EMPLOYEE
+set salary =24000
+WHERE empId=3;
+
+SELECT empId AS ID FROM EMPLOYEE 
+
+Order By name desc, salary asc;
+SELECT * FROM EMPLOYEE
+WHERE name  LIKE 'c%k';
+
+SELECT (salary-50) FROM EMPLOYEE AS Penalty ;
+
+INSERT INTO EMPLOYEE(empId,name,dept,salary) VALUES (0004, 'John', 'Development', 20000 );
+INSERT INTO EMPLOYEE(empId,name,dept,salary) VALUES (0005, 'Mike', 'Deployment',40000);
+INSERT INTO EMPLOYEE(empId,name,dept,salary) VALUES (0006, 'Jose', 'Marketing',30000);
+
+SELECT * FROM EMPLOYEE
+SELECT empId, name,
+(case
+when salary >10000 and salary<20000
+then 'Intern Stipend'
+when salary >20000
+then 'Payroll'
+else 'NA'
+end) as JobRole
+ FROM EMPLOYEE
+
+-- create
+CREATE TABLE COMPANY (
+  compid int,
+  name varchar(100),
+  services varchar(50)
+
+);
+
+-- insert
+INSERT INTO COMPANY(compid,name,services) VALUES (0001, 'JP Morgan', 'Client');
+INSERT INTO COMPANY(compid,name,services) VALUES (0002, 'HDFC', 'Software');
+INSERT INTO COMPANY(compid,name,services) VALUES (0003, 'BULL', 'Hardware');
+INSERT INTO COMPANY(compid,name,services) VALUES (0004, 'IDFC', 'Parts');
+INSERT INTO COMPANY(compid,name,services) VALUES (0005, 'HP', 'Bank');
+
+INSERT INTO COMPANY(compid,name,services) VALUES (0005, 'HP', 'Bank');
+
+
+
+
+SELECT * FROM EMPLOYEE
+
+SELECT * FROM COMPANY
+union all
+SELECT * FROM EMPLOYEE
+
+
+
+
+ALTER TABLE EMPLOYEE
+DROP COLUMN salary;
+-- Drop the salary column from the EMPLOYEE table
+ALTER TABLE EMPLOYEE
+DROP COLUMN salary;
+
+-- Select data from both tables with the same number of columns
+-- Drop the salary column from the EMPLOYEE table
+ALTER TABLE EMPLOYEE
+DROP COLUMN salary;
+
+-- Select data from both tables with the same number of columns
+SELECT compid AS ID, name, services, NULL AS salary, NULL AS dept FROM COMPANY
+UNION ALL
+SELECT empId, name, NULL AS services, NULL AS salary, dept FROM EMPLOYEE;
+
+
+
+var result = dbContext.OrderMaster
+    .GroupJoin(
+        dbContext.OrderDetail,
+        master => master.Id,
+        detail => detail.OrderId,
+        (master, detailGroup) => new
+        {
+            OrderMasterId = master.Id,
+            // Other properties from OrderMaster
+
+            OrderDetails = detailGroup.DefaultIfEmpty(), // Access the related details or null if none
+        }
+    )
+    .ToList();
+
+----------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE Details
+(
+id int,
+Phone varchar(100),
+Age int,
+Bank varchar(100),
+Salary varchar(100),
+
+
+);
+INSERT INTO Details ( id,Phone, Age, Bank, Salary) VALUES (1,'8343434', 23, 'HDFC','23090');
+INSERT INTO Details ( id,Phone, Age, Bank, Salary) VALUES (2,'8768734', 28, 'HDFC','67322');
+INSERT INTO Details ( id,Phone, Age, Bank, Salary) VALUES (3,'7846734', 29, 'IDFC','75003');
+INSERT INTO Details ( id,Phone, Age, Bank) VALUES (4,'8343434', 23, 'HDFC');
+INSERT INTO Details ( id,Phone, Age) VALUES (5,'8343434', 23);
+
+
+Select * FROM Details
+right join Employee
+ON Details.id= Employee.id;
+
+
+
+
+var orderMasterIds = result.Select(item => item.OrderMasterId).ToList();
+
+
+var orderMastersToUpdate = db.OrderMaster
+    .Where(master => orderMasterIds.Contains(master.Id))
+    .ToList();
+
+
+foreach (var orderMaster in orderMastersToUpdate)
+{
+    orderMaster.IsActive = false;
+    db.Entry(orderMaster).State = EntityState.Modified;
+}
+
+
+var orderDetailsToUpdate = db.OrderDetail
+    .Where(detail => orderMasterIds.Contains(detail.OrderId))
+    .ToList();
+
+foreach (var orderDetail in orderDetailsToUpdate)
+{
+    orderDetail.IsActive = false;
+    db.Entry(orderDetail).State = EntityState.Modified;
+}
+
+
+db.SaveChanges();
+
+
+
+
+
+
+
+
+------------------------------------------
+
+
+
+
+
+CREATE TABLE Customer
+(
+CustomerId int,
+CustomerName nvarchar(100),
+CustomerPhoneNo nvarchar(100),
+CustomerSSN nvarchar(100)
+);
+
+CREATE TABLE Product
+(
+ProductId int,
+ProductName nvarchar(100),
+ProductCost nvarchar(100)
+);
+
+CREATE TABLE ProductCustomer
+(
+ProductCustomerId int,
+CustomerId_fk int,
+ProductId_fk int,
+Payment nvarchar(100)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+metadata=res://*/MyModel.csdl|res://*/MyModel.ssdl|res://*/MyModel.msl;provider=System.Data.SqlClient;provider connection string="data source=Nimap\SQLEXPRESS;initial catalog=EmployeeDB;integrated security=True;trustservercertificate=True;MultipleActiveResultSets=True;App=EntityFramework"
