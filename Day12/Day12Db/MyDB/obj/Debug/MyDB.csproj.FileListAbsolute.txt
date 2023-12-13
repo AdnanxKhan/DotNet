@@ -1,0 +1,6 @@
+C:\Users\rupes\source\repos\Day12DB\MyDB\bin\Debug\MyDB.dll
+C:\Users\rupes\source\repos\Day12DB\MyDB\bin\Debug\MyDB.pdb
+C:\Users\rupes\source\repos\Day12DB\MyDB\obj\Debug\MyDB.csproj.AssemblyReference.cache
+C:\Users\rupes\source\repos\Day12DB\MyDB\obj\Debug\MyDB.csproj.CoreCompileInputs.cache
+C:\Users\rupes\source\repos\Day12DB\MyDB\obj\Debug\MyDB.dll
+C:\Users\rupes\source\repos\Day12DB\MyDB\obj\Debug\MyDB.pdb
