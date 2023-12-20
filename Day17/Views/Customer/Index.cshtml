@@ -1,0 +1,48 @@
+﻿@model List <MyApp.Models.Customer>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+
+<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+<table class="table">
+    <tr>
+        <th>
+          Customer Name
+        </th>
+        <th>
+            Membership Type
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            @if (item.MembershipTypes.MembershipName != null)
+            {
+                <td>
+                    @Html.ActionLink(item.CustomerName, "Details", new { name = item.CustomerName, id = item.CustomerId })
+                </td>
+                <td>
+                    @item.MembershipTypes.MembershipName
+                </td>
+            }
+
+
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId })
+            </td>
+            @* @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+            *@
+        </tr>
+    }
+
+</table>
