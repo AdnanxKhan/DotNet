@@ -1,0 +1,12 @@
+﻿@model MyApp.Models.Movie
+
+<h2>Delete Customer</h2>
+
+<p>Are you sure you want to delete customer: @Model.MovieName ?</p>
+
+@using (Html.BeginForm("ConfirmDelete", "Movie", new { id = Model.MovieId }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Confirm" class="btn btn-danger ml-2" />
+    @Html.ActionLink("Cancel", "Index", "Movie", null, new { @class = "btn btn-default" })
+}

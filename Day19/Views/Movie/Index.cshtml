@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MyApp.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movie List</h2>
+
+<p>
+    @using (Html.BeginForm("Create", "Movie", FormMethod.Get))
+    {
+        <input type="submit" value="Add New Movie" class="btn btn-primary ml-2" />
+    }
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.MovieName, "Details", new { id = item.MovieId, name = item.MovieName })
+        </td>
+        <td>
+            <button class="btn btn-secondary rounded-2" onclick="location.href='@Url.Action("Edit", new { id = item.MovieId })'">Edit</button>
+            <t />
+            <button class="btn btn-danger rounded-2 ml-2" onclick="location.href='@Url.Action("Delete", new { id = item.MovieId })'">Delete</button>
+
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MovieId })
+        </td>*@
+    </tr>
+}
+
+</table>
