@@ -1,0 +1,46 @@
+﻿@model NewApp.ViewModels.CustomerFormViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h3>Create</h3>
+
+@using (Html.BeginForm("Create", "Customer", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.CustomerName)
+        @Html.TextBoxFor(model => model.Customer.CustomerName)
+        <br />
+        <br />
+        @Html.ValidationMessageFor(model => model.Customer.CustomerName)
+
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.BirthDate)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        @Html.TextBoxFor(model => model.Customer.BirthDate, "{0:dd MM yyyy}")
+        @Html.ValidationMessageFor(model => model.Customer.BirthDate)
+
+
+    </div>
+    <br />
+    <div class="form-group">
+        Membership Type:
+        @Html.DropDownListFor(model => model.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "MembershipName"), "Select Membership Type")
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.IsSubscribedToNewsLetter)
+        @Html.CheckBoxFor(model => model.Customer.IsSubscribedToNewsLetter)
+
+
+    </div>
+
+    <br />
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Customer.CustomerId)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}

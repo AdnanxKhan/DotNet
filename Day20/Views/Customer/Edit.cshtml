@@ -1,0 +1,72 @@
+﻿@model NewApp.ViewModels.CustomerFormViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <table>
+        <tr>
+            <th>@Html.LabelFor(model => model.Customer.CustomerName)</th>
+            <td>
+           
+                @Html.EditorFor(model => model.Customer.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Customer.CustomerName, "", new { @class = "text-danger" })
+                <br />
+
+            </td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.Customer.IsSubscribedToNewsLetter)</th>
+            <td>
+                <div class="checkbox">
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.EditorFor(model => model.Customer.IsSubscribedToNewsLetter)
+                    @Html.ValidationMessageFor(model => model.Customer.IsSubscribedToNewsLetter, "", new { @class = "text-danger" })
+                </div>
+                <br />
+            </td>
+        </tr>
+
+        <tr>
+            <br />
+            <th>Membership Type</th>
+            <td>
+                <br />
+                &nbsp;
+                @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "MembershipName"), "Select Membership Type")
+                <br />
+            </td>
+        </tr>
+
+        <tr>
+            <br />
+            <th>@Html.LabelFor(model => model.Customer.BirthDate)</th>
+            <td>
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.TextBoxFor(model => model.Customer.BirthDate, "{0:dd MM yyyy}", new { @class = "form-control datepicker" })
+                @Html.ValidationMessageFor(model => model.Customer.BirthDate, "", new { @class = "text-danger" })
+                <br />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                @Html.HiddenFor(m => m.Customer.CustomerId)
+                <input type="submit" value="Save" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
