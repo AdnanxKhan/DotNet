@@ -1,0 +1,39 @@
+﻿@model NewApp.Models.Customer
+
+@{
+    var mymodel = Model;
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.CustomerName)</th>
+        @if (mymodel.BirthDate != null)
+        {
+            <th>@Html.DisplayNameFor(model => model.BirthDate)</th>
+            <th>@Html.DisplayNameFor(model => model.MembershipTypes.MembershipName)</th>
+        }
+        else
+        {
+            <th>@Html.DisplayNameFor(model => model.MembershipTypes.MembershipName)</th>
+        }
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(model => model.CustomerName)</td>
+        @if (mymodel.BirthDate != null)
+        {
+            <td>@String.Format("{0:dd - MMMM - yyyy}", mymodel.BirthDate)</td>
+            <td>@Html.DisplayFor(model => model.MembershipTypes.MembershipName)</td>
+        }
+        else
+        {
+            <td>@Html.DisplayFor(model => model.MembershipTypes.MembershipName)</td>
+        }
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
