@@ -1,0 +1,75 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "New Rental Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <div class="container body-content">
+        <h2>New</h2>
+        <form id="newRental">
+            <div class="form-group">
+                <label>Customer</label>
+                <div class="tt-container">
+                    <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Movie</label>
+                <div class="tt-container">
+                    <input id="movie" name="movie" data-rule-atLeastOneMovie="true" type="text" value="" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <ul id="movies" class="list-group"></ul>
+                </div>
+            </div>
+
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    @section scripts {
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/bloodhound.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.css" />
+
+        <script>
+            $(document).ready(function () {
+                var customers = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('CustomerName'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    remote: {
+                        url: '/api/customers?query=%QUERY',
+                        wildcard: '%QUERY',
+                        transform: function (response) {
+                            return response.data;
+                        }
+                    }
+                });
+
+                customers.initialize();
+
+                $('#customer').typeahead({
+                    minLength: 1,
+                    highlight: true
+                }, {
+                    name: 'customers',
+                    displayKey: 'CustomerName',
+                    source: customers
+                }).on("typeahead:select", function (e, customer) {
+                    // Handle selection if needed
+                    console.log(customer);
+                });
+            });
+        </script>
+    }
+</body>
+</html>
+

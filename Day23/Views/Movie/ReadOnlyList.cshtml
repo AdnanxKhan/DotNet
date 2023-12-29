@@ -1,0 +1,79 @@
+﻿@model IEnumerable<NewApp.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movie List</h2>
+
+
+<table id="movies" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Movie Name
+            </th>
+            <th>
+                Genre
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.MovieName, "Details", new { id = item.MovieId, name = item.MovieName })
+                </td>
+                <td>
+                    <button class="btn btn-secondary rounded-2" onclick="location.href='@Url.Action("Details", new { id = item.MovieId })'">Edit</button>
+                    <t />
+                    <button class="btn btn-danger rounded-2 ml-2 data-movie-id" onclick="location.href='@Url.Action("Delete", new { id = item.MovieId })'">Delete</button>
+
+                </td>
+        <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MovieId })
+            </td>
+        </tr>
+        }*@
+    </tbody>
+</table>
+
+@section scripts
+{
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <script>
+        $(document).ready(function () {
+            var table = $("#movies").DataTable({
+                ajax: {
+                    url: "/API/Movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "MovieName"
+                        
+                    },
+                    {
+                        data: "Genre"
+                    }
+                ]
+            });
+
+  
+        });
+    </script>
+}
