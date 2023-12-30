@@ -1,0 +1,98 @@
+﻿
+using NewApp.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace MyApp.Controllers
+{
+    public class MovieController : Controller
+    {
+        private ApplicationDbContext _context;
+        public MovieController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        public ActionResult Index()
+        {
+            if (User.IsInRole(RoleName.CanManageMovies))
+                //List<Movie> movieList = _context.Movies.ToList();
+                //var movie = new Movie();
+
+                //return View(movieList);
+                return View("List");
+             return View("ReadOnlyList");
+        }
+        [Authorize(Roles = RoleName.CanManageMovies)]
+
+        public ActionResult Create()
+        {
+            var movie = new Movie();
+            return View(movie);
+        }
+        [HttpPost]
+
+        public ActionResult Create(Movie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return View("Create", movie);
+            }
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movie");
+        }
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Movie movie = _context.Movies.SingleOrDefault(c => c.MovieId == id);
+            return View("Details", movie);
+        }
+        [HttpPost]
+        public ActionResult Details(Movie movie)
+        {
+
+
+
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.MovieId == movie.MovieId);
+
+            movieInDb.MovieName = movie.MovieName;
+            movieInDb.Genre = movie.Genre;
+            movieInDb.ReleaseDate = movie.ReleaseDate;
+            movieInDb.DateAdded = movie.DateAdded;
+            movieInDb.NumberInStock = movie.NumberInStock;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movie");
+
+        }
+        public ActionResult Delete(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.MovieId == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmDelete(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.MovieId == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movie");
+        }
+
+    }
+}
