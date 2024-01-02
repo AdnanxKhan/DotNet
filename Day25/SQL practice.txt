@@ -1,0 +1,179 @@
+    ALTER TABLE ProductCustomer ADD NoOfOrders INT, OrderDate DateTime;
+
+UPDATE ProductCustomer
+SET 
+    NoOfOrders = CASE 
+
+                    WHEN ProductCustomerId = 2 THEN 6
+                    WHEN ProductCustomerId = 3 THEN 8
+                    WHEN ProductCustomerId = 4 THEN 10
+                    WHEN ProductCustomerId = 5 THEN 12
+                 END,
+    OrderDate = CASE 
+       
+                    WHEN ProductCustomerId = 2 THEN '2020-06-15'
+                    WHEN ProductCustomerId = 3 THEN '2021-05-20'
+                    WHEN ProductCustomerId = 4 THEN '2023-01-25'
+                    WHEN ProductCustomerId = 5 THEN '2022-09-30'
+                 END
+WHERE ProductCustomerId IN (2, 3, 4, 5);
+
+
+SELECT 
+    c.CustomerName, 
+    c.CustomerSSN, 
+    p.ProductName, 
+    p.ProductCost, 
+    pc.Payment
+FROM 
+    Customer c
+JOIN 
+    ProductCustomer pc ON c.CustomerId = pc.ProductCustomerId
+JOIN 
+    Product p ON p.ProductId = pc.ProductCustomerId
+WHERE 
+    pc.OrderDate > '2023-01-01'
+ORDER BY 
+    c.CustomerName;
+
+
+SELECT 
+c.CustomerName,
+SUM(p.ProductCost * pc.NoOfOrders) AS TotalProductCost
+FROM
+Customer c
+JOIN
+ProductCustomer pc ON c.CustomerId=pc.CustomerId_fk
+JOIN
+Product p ON p.ProductId=pc.ProductId_fk
+GROUP BY 
+c.CustomerName
+
+
+
+SELECT TOP (1000) [ProductId]
+      ,[ProductName]
+      ,[ProductCost]
+      ,[NoOfProducts]
+  FROM [EmployeeDB].[dbo].[Product]
+  GO
+  SELECT c.CustomerName, p.ProductName, p.ProductCost,pc.NoOfOrders
+  FROM Customer c
+  JOIN ProductCustomer pc ON c.CustomerId=pc.CustomerId_fk
+  JOIN Product p ON p.ProductId=pc.ProductId_fk
+
+
+
+SELECT TOP (1000) [ProductCustomerId]
+      ,[CustomerId_fk]
+      ,[ProductId_fk]
+      ,[Payment]
+      ,[NoOfOrders]
+      ,[OrderDate]
+  FROM [EmployeeDB].[dbo].[ProductCustomer]
+  
+SELECT 
+    c.CustomerName, 
+    c.CustomerSSN, 
+    p.ProductName, 
+    p.ProductCost, 
+    pc.Payment
+FROM 
+    Customer c
+JOIN 
+    ProductCustomer pc ON c.CustomerId = CustomerId_fk
+JOIN 
+    Product p ON p.ProductId = pc.ProductId_fk
+WHERE 
+    pc.OrderDate > '2023-01-01'
+ORDER BY 
+    c.CustomerName;
+
+
+
+
+Select * from Customer
+
+Select p.ProductName , pc.Payment, pc.NoOfOrders
+FROM Product p
+Left Join ProductCustomer pc ON pc.ProductId_fk=p.ProductId
+
+
+SELECT
+    c.CustomerName,
+    COUNT(DISTINCT pc.ProductId_fk) AS NumberOfProductsOrdered
+FROM
+    Customer c
+JOIN
+    ProductCustomer pc ON c.CustomerId = pc.CustomerId_fk
+GROUP BY
+    c.CustomerName
+HAVING
+    COUNT(DISTINCT pc.ProductId_fk) > 1;
+
+
+
+
+
+ALTER TABLE Customer
+ADD CustomerEmail VARCHAR(255);
+ALTER TABLE Customer
+ADD CustomerBirthdate DATE;
+
+
+UPDATE Customer
+SET CustomerEmail = 'adnan@example.com', CustomerBirthdate = '1980-01-15'
+WHERE CustomerId = 1;
+
+UPDATE Customer
+SET CustomerEmail = 'josh@example.com', CustomerBirthdate = '1992-08-20'
+WHERE CustomerId = 2;
+
+UPDATE Customer
+SET CustomerEmail = 'greg@example.com', CustomerBirthdate = '1985-04-05'
+WHERE CustomerId = 3;
+
+
+ALTER TABLE Product
+ADD  Manufacturer VARCHAR(255);
+ALTER TABLE Product
+ADD  ReleaseDate DATE;
+
+UPDATE Product
+SET Manufacturer = 'ABC Electronics', ReleaseDate = '2020-12-01'
+WHERE ProductId = 1;
+
+UPDATE Product
+SET Manufacturer = 'XYZ Tech', ReleaseDate = '2021-05-15'
+WHERE ProductId = 2;
+
+UPDATE Product
+SET Manufacturer = 'TechCo', ReleaseDate = '2019-11-10'
+WHERE ProductId = 3;
+
+UPDATE Product
+SET Manufacturer = 'AudioTech', ReleaseDate = '2022-02-28'
+WHERE ProductId = 4;
+
+UPDATE Product
+SET Manufacturer = 'PrinterCorp', ReleaseDate = '2020-06-05'
+WHERE ProductId = 5;
+
+
+CREATE TABLE OrderReview (
+    OrderReviewId INT PRIMARY KEY,
+    ProductCustomerId_fk INT,
+    ReviewText TEXT,
+    Rating INT
+);
+
+
+INSERT INTO OrderReview (OrderReviewId, ProductCustomerId_fk, ReviewText, Rating)
+VALUES
+    (1, 1, 'Great product and fast delivery!', 5),
+    (2, 2, 'Not satisfied with the product quality.', 2),
+    (3, 3, 'Excellent service and product performance.', 4),
+    (4, 4, 'Highly recommended!', 5),
+    (5, 5, 'Good value for money.', 3);
+
+
